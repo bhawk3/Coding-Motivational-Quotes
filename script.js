@@ -1,5 +1,5 @@
 const quoteLocation = document.getElementById("quote-location");
-const selectedCategory = document.getElementById("category-select");
+const selectedCategory = document.getElementById("selected-category");
 const generateQuoteButton = document.getElementById("generate-quote");
 
 const programmingQuotes = [
@@ -24,12 +24,19 @@ const programmingQuotes = [
 //Pull out any of the ones with the same category as the selection
 //Return one of them
 
-const categorizedQuotes = programmingQuotes.map((quote) => {
-	quote.category;
-});
+//I need to re-think this a bit. I need to filter the data THEN map over it
 
-console.log(categorizedQuotes);
+function categorizedQuotes() {
+	return programmingQuotes.filter((category) => category.category === selectedCategory.value);
+}
+
+/*const categorizedQuotes = programmingQuotes.map((quote) => {
+	if (selectedCategory == quote.category) {
+		return quote.text;
+	}
+	//This logs the category of all data
+});*/
 
 generateQuoteButton.addEventListener("click", () => {
-	console.log(categorizedQuotes);
+	console.log(categorizedQuotes());
 });
