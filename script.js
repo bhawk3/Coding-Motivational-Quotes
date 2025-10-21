@@ -32,7 +32,10 @@ function categorizedQuotes() {
 		});
 
 	let random = Math.floor(Math.random() * programmingQuotes.length);
-	return programmingQuotes[random].text;
+	//return programmingQuotes[random].text;
+
+	//Set the DOM to update here
+	quoteLocation.innerHTML = programmingQuotes[random].text;
 }
 
 generateQuoteButton.addEventListener("click", () => {
