@@ -24,18 +24,16 @@ const programmingQuotes = [
 //Pull out any of the ones with the same category as the selection
 //Return one of them
 
-//I need to re-think this a bit. I need to filter the data THEN map over it
-
 function categorizedQuotes() {
-	return programmingQuotes.filter((category) => category.category === selectedCategory.value);
-}
+	programmingQuotes
+		.filter((category) => category.category === selectedCategory.value)
+		.map((quote) => {
+			return quote.text;
+		});
 
-/*const categorizedQuotes = programmingQuotes.map((quote) => {
-	if (selectedCategory == quote.category) {
-		return quote.text;
-	}
-	//This logs the category of all data
-});*/
+	let random = Math.floor(Math.random() * programmingQuotes.length);
+	return programmingQuotes[random].text;
+}
 
 generateQuoteButton.addEventListener("click", () => {
 	console.log(categorizedQuotes());
