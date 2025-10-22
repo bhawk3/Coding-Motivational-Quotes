@@ -32,12 +32,14 @@ function categorizedQuotes() {
 		});
 
 	let random = Math.floor(Math.random() * programmingQuotes.length);
-	//return programmingQuotes[random].text;
-
 	//Set the DOM to update here
 	quoteLocation.innerHTML = programmingQuotes[random].text;
 }
 
 generateQuoteButton.addEventListener("click", () => {
-	console.log(categorizedQuotes());
+	if (selectedCategory.value === "") {
+		alert("Please select a category to get a quote.");
+	} else {
+		categorizedQuotes();
+	}
 });
